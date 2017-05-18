@@ -19,7 +19,7 @@ MongoClient.connect("mongodb://localhost:27017/TodoApp", (err, db) => {
 
   db.collection("Users").insertOne({
     name: "Mac",
-    age: 300,
+    age: 33,
     location: "Denver"
   }, (err, result) => {
     if (err) {

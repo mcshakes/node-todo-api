@@ -83,20 +83,16 @@ describe("GET /todos/:id", () => {
     .expect(200)
     .expect((res) => {
       expect(res.body.todo.text).toBe(todos[0].text);
-      // Expect response body to be the first of todos array
     })
     .end(done);
   })
 
   it("should return 404 if todo not found", (done) => {
 
-    var fakeID = new ObjectID()
+    var fakeID = new ObjectID().toHexString()
     request(app)
-    .get(`/todos/${fakeID.toHexString()}`)
+    .get(`/todos/${fakeID}`)
     .expect(404)
-    // .expect((res) => {
-    //   expect(res.body.todo.text).toBe(todos[0].text);
-    // })
     .end(done);
   })
 
